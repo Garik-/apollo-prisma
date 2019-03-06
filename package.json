@@ -10,15 +10,21 @@
     "author": "Gar|k <garik.djan@gmail.com>",
     "private": true,
     "scripts": {
-        "start": "ts-node src/index.ts",
+        "start": "PRISMA_ENDPOINT='http://localhost:4466/dgaming-backend/' ts-node src/index.ts",
         "prisma:generate": "prisma generate; graphql get-schema -p prisma; graphqlgen; yarn prisma:client",
         "prisma:client": "cd ./generated/prisma-client; sed -i '' -e 's/endpoint: `.*`/endpoint: process.env.PRISMA_ENDPOINT/' index.ts"
     },
     "dependencies": {
+        "apollo-datasource": "^0.3.1",
+        "apollo-datasource-rest": "^0.3.2",
         "apollo-server": "^2.4.8",
-        "graphql": "^14.1.1"
+        "graphql": "^14.1.1",
+        "prisma-client-lib": "^1.28.0"
     },
     "devDependencies": {
+        "@types/graphql": "^14.0.7",
+        "@types/mocha": "^5.2.6",
+        "@types/node": "^11.10.5",
         "graphqlgen": "^0.6.0-rc9",
         "ts-node": "^8.0.2",
         "typescript": "^3.3.3333"

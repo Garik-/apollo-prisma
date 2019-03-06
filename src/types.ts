@@ -1,7 +1,11 @@
-import { Prisma } from '../generated/prisma-client'
+import PrismaAPI from './datasources/prisma'
+
+interface DataSources {
+    prismaAPI: PrismaAPI
+}
 
 export interface Context {
-  prisma: Prisma
+  dataSources: DataSources
 }
 
 
