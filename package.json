@@ -1,0 +1,26 @@
+{
+    "name": "dgaming-backend",
+    "version": "0.0.2",
+    "description": "DGaming backend service",
+    "keywords": [
+        "DGaming",
+        "GraphQL",
+        "Prisma"
+    ],
+    "author": "Gar|k <garik.djan@gmail.com>",
+    "private": true,
+    "scripts": {
+        "start": "ts-node src/index.ts",
+        "prisma:generate": "prisma generate; graphql get-schema -p prisma; graphqlgen; yarn prisma:client",
+        "prisma:client": "cd ./generated/prisma-client; sed -i '' -e 's/endpoint: `.*`/endpoint: process.env.PRISMA_ENDPOINT/' index.ts"
+    },
+    "dependencies": {
+        "apollo-server": "^2.4.8",
+        "graphql": "^14.1.1"
+    },
+    "devDependencies": {
+        "graphqlgen": "^0.6.0-rc9",
+        "ts-node": "^8.0.2",
+        "typescript": "^3.3.3333"
+    }
+}
