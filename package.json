@@ -16,7 +16,6 @@
     },
     "dependencies": {
         "apollo-datasource": "^0.3.1",
-        "apollo-datasource-rest": "^0.3.2",
         "apollo-server": "^2.4.8",
         "graphql": "^14.1.1",
         "prisma-client-lib": "^1.28.0"
